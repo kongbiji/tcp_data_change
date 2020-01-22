@@ -35,21 +35,12 @@ typedef struct TCP{
     uint16_t window;
     uint16_t checksum;
     uint16_t urgent_ptr;
-    uint8_t options[12];
 }TCP;
 typedef struct packet{
     IP ip;
     TCP tcp;
 }Packet;
 #pragma pack(pop)
-
-typedef struct MAC{
-    uint8_t mac[6];
-    bool operator <(const MAC& var) const
-    {
-        return memcmp(mac, var.mac, sizeof(mac)) < 0;
-    }
-}MAC;
 
 typedef struct Key{
     uint32_t src_ip;
